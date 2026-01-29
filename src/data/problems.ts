@@ -8,6 +8,7 @@ export interface Problem {
   tags: string[];
   imagem?: string;
   video?: string;
+  librasVideo?: string;
 }
 
 export interface Category {
