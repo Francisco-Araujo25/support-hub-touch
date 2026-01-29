@@ -156,7 +156,22 @@ export const AccessibilityProvider: React.FC<{ children: ReactNode }> = ({ child
 export const useAccessibility = () => {
   const context = useContext(AccessibilityContext);
   if (!context) {
-    throw new Error('useAccessibility must be used within AccessibilityProvider');
+    // Return default values if used outside provider (for safety)
+    return {
+      highContrast: false,
+      fontSize: 'normal' as FontSize,
+      soundEnabled: true,
+      autoNarration: false,
+      reducedMotion: false,
+      setHighContrast: () => {},
+      setFontSize: () => {},
+      setSoundEnabled: () => {},
+      setAutoNarration: () => {},
+      toggleHighContrast: () => {},
+      increaseFontSize: () => {},
+      decreaseFontSize: () => {},
+      resetSettings: () => {},
+    };
   }
   return context;
 };
