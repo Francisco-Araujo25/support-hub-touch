@@ -10,6 +10,7 @@ import Category from "./pages/Category";
 import Solution from "./pages/Solution";
 import Feedback from "./pages/Feedback";
 import NotFound from "./pages/NotFound";
+import { VirtualAssistant } from "./components/VirtualAssistant";
 import '@fontsource/orbitron/400.css';
 import '@fontsource/orbitron/700.css';
 
@@ -31,6 +32,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <VirtualAssistant />
         </BrowserRouter>
       </TooltipProvider>
     </AccessibilityProvider>
