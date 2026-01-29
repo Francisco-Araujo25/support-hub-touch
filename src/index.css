@@ -10,6 +10,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== MEDIA QUERIES - Resoluções suportadas ===== */
+/* 1080x1920 - Totem vertical padrão */
+/* 900x1440 - Totem vertical compacto */
+/* 768x1024 - Tablet vertical */
+/* 1920x1080 - Desktop horizontal */
+
+@media screen and (width: 900px) and (height: 1440px) {
+  :root {
+    --totem-scale: 0.833;
+  }
+  
+  html {
+    font-size: 15px;
+  }
+  
+  .touch-target {
+    min-height: 40px;
+    min-width: 40px;
+  }
+  
+  .touch-target-lg {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
 /* KB_TOTEM Design System - Tech Premium */
 
 @layer base {

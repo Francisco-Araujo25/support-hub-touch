@@ -1,13 +1,14 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { AlertTriangle, Lightbulb, CheckCircle, AlertCircle, Volume2 } from 'lucide-react';
+import { AlertTriangle, Lightbulb, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { NavigationHeader } from '@/components/NavigationHeader';
 import { StepByStep } from '@/components/StepByStep';
 import { MediaPlaceholder } from '@/components/MediaPlaceholder';
 import { TTSButton } from '@/components/TTSButton';
+import { LibrasButton } from '@/components/LibrasButton';
 import { AccessibilityControls } from '@/components/AccessibilityControls';
 import { SkipLink } from '@/components/SkipLink';
 import { InactivityWarning } from '@/components/InactivityWarning';
@@ -85,17 +86,23 @@ const Solution = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-8"
           >
-            <div className="flex items-center justify-center gap-4 mb-2">
+            <div className="flex items-center justify-center gap-4 mb-2 flex-wrap">
               <h1 className="text-3xl md:text-4xl font-bold text-foreground">
                 {problem.titulo}
               </h1>
-              <TTSButton 
-                text={fullNarrationText}
-                label="Ouvir tudo"
-                categoryColor={category.cor}
-                showControls
-                autoPlay={autoNarration}
-              />
+              <div className="flex items-center gap-2">
+                <TTSButton 
+                  text={fullNarrationText}
+                  label="Ouvir tudo"
+                  categoryColor={category.cor}
+                  showControls
+                  autoPlay={autoNarration}
+                />
+                <LibrasButton 
+                  videoUrl={problem.librasVideo}
+                  categoryColor={category.cor}
+                />
+              </div>
             </div>
             <p className="text-xl text-muted-foreground">
               {problem.descricao}
