@@ -34,7 +34,10 @@ export const ProblemCard = ({ problem, categoryId, categoryColor, index, searchQ
     >
       <Card
         className="cursor-pointer transition-all duration-300 hover:shadow-lg border-2 border-transparent hover:border-primary/50 group"
-        onClick={() => navigate(`/categoria/${categoryId}/problema/${problem.id}`)}
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'instant' });
+          navigate(`/categoria/${categoryId}/problema/${problem.id}`);
+        }}
       >
         <CardContent className="p-6">
           <div className="flex items-start justify-between gap-4">

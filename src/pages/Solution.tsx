@@ -1,3 +1,4 @@
+import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AlertTriangle, Lightbulb, CheckCircle, AlertCircle, Volume2 } from 'lucide-react';
@@ -21,6 +22,11 @@ const Solution = () => {
   const { showWarning, countdown, resetTimer } = useInactivityTimeout();
   const { playTap, playSuccess } = useAudioFeedback();
   const { soundEnabled, autoNarration } = useAccessibility();
+
+  // Scroll to top on mount
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [categoryId, problemId]);
 
   const category = getCategoryById(categoryId || '');
   const problem = getProblemById(categoryId || '', problemId || '');

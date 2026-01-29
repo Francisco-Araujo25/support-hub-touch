@@ -102,6 +102,8 @@ export const CategoryIcon = ({ id, nome, icone, cor, index }: CategoryIconProps)
           <img
             src={icone}
             alt={`Ícone de ${nome}`}
+            loading="eager"
+            decoding="async"
             className="w-48 h-48 md:w-64 md:h-64 object-contain icon-3d relative z-10"
             style={{
               filter: `drop-shadow(0 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 4px 8px ${cor}30)`,
