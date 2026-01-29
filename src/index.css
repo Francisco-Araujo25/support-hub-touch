@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* KB_TOTEM Design System */
+/* KB_TOTEM Design System - Enhanced */
 
 @layer base {
   :root {
@@ -40,6 +40,23 @@
     --hardware: 217 91% 60%;
     --software: 160 84% 39%;
 
+    /* Glassmorphism */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-blur: 20px;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(240, 100%, 70%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(160, 84%, 39%) 0%, hsl(180, 100%, 40%) 100%);
+    --gradient-ambient: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(210, 40%, 98%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.08);
+    --shadow-medium: 0 8px 30px -4px hsl(0 0% 0% / 0.12);
+    --shadow-strong: 0 20px 50px -10px hsl(0 0% 0% / 0.2);
+    --shadow-glow-blue: 0 0 40px -10px hsl(217, 91%, 60%, 0.4);
+    --shadow-glow-green: 0 0 40px -10px hsl(160, 84%, 39%, 0.4);
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -48,6 +65,45 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* High Contrast Mode */
+  .high-contrast {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 85%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 40%;
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --hardware: 60 100% 50%;
+    --software: 120 100% 50%;
+  }
+
+  /* Font Size Modes */
+  .font-size-normal {
+    font-size: 16px;
+  }
+
+  .font-size-large {
+    font-size: 20px;
+  }
+
+  .font-size-extra-large {
+    font-size: 24px;
+  }
+
+  /* Reduced Motion */
+  .reduce-motion *,
+  .reduce-motion *::before,
+  .reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 
   .dark {
@@ -138,5 +194,89 @@
   .gradient-text {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--software)));
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl shadow-lg;
+  }
+
+  /* 3D Effects */
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* Icon 3D effect */
+  .icon-3d {
+    @apply relative transition-all duration-300;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  }
+
+  .icon-3d:hover {
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+  }
+
+  /* Glow effects */
+  .glow-blue {
+    box-shadow: var(--shadow-glow-blue);
+  }
+
+  .glow-green {
+    box-shadow: var(--shadow-glow-green);
+  }
+
+  /* Focus visible enhancements */
+  .focus-visible-enhanced:focus-visible {
+    @apply outline-none ring-4 ring-primary ring-offset-4 ring-offset-background;
+  }
+
+  /* Touch target minimum size */
+  .touch-target-lg {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Parallax container */
+  .parallax-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Floating animation */
+  .floating {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Breathing animation */
+  .breathing {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-ambient {
+    background: var(--gradient-ambient);
   }
 }
