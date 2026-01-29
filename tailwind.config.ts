@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        tech: ['Orbitron', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,11 +61,27 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Category semantic colors
+        hardware: "hsl(var(--hardware))",
+        software: "hsl(var(--software))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 4px)",
+        "2xl": "calc(var(--radius) + 8px)",
+        "3xl": "calc(var(--radius) + 12px)",
+      },
+      boxShadow: {
+        'glass': 'var(--shadow-glass)',
+        'glass-lg': 'var(--shadow-glass-lg)',
+        'elevation-1': 'var(--shadow-sm)',
+        'elevation-2': 'var(--shadow-md)',
+        'elevation-3': 'var(--shadow-lg)',
+        'elevation-4': 'var(--shadow-xl)',
+        'glow-primary': 'var(--glow-primary)',
+        'glow-accent': 'var(--glow-accent)',
       },
       keyframes: {
         "accordion-down": {
@@ -74,33 +94,56 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-12px)" },
         },
         "breathe": {
-          "0%, 100%": { transform: "scale(1)", opacity: "1" },
-          "50%": { transform: "scale(1.02)", opacity: "0.95" },
-        },
-        "glow": {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)" },
-          "50%": { boxShadow: "0 0 40px rgba(59, 130, 246, 0.5)" },
+          "0%, 100%": { transform: "scale(1)", opacity: "0.7" },
+          "50%": { transform: "scale(1.02)", opacity: "1" },
         },
         "shimmer": {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
+          "0%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
-        "pulse-soft": {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.7" },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(var(--primary) / 0.2)" },
+          "50%": { boxShadow: "0 0 40px hsl(var(--primary) / 0.4)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-out": {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(10px)" },
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0.95)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 3s ease-in-out infinite",
+        "float": "float 4s ease-in-out infinite",
         "breathe": "breathe 4s ease-in-out infinite",
-        "glow": "glow 2s ease-in-out infinite",
-        "shimmer": "shimmer 2s linear infinite",
-        "pulse-soft": "pulse-soft 2s ease-in-out infinite",
+        "shimmer": "shimmer 6s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "fade-in": "fade-in 0.3s ease-out",
+        "fade-out": "fade-out 0.3s ease-out",
+        "scale-in": "scale-in 0.2s ease-out",
+        "slide-in-right": "slide-in-right 0.3s ease-out",
+      },
+      transitionTimingFunction: {
+        'premium': 'cubic-bezier(0.22, 1, 0.36, 1)',
+        'bounce-in': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
       },
     },
   },
