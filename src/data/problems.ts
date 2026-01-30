@@ -40,7 +40,8 @@ export const categories: Category[] = [
           "Se necessário, troque a pasta térmica",
           "Adquira fonte certificada 80 Plus com margem de 20%"
         ],
-        tags: ["fonte", "energia", "desligamento", "superaquecimento", "temperatura"]
+        tags: ["fonte", "energia", "desligamento", "superaquecimento", "temperatura"],
+        video: "https://www.youtube.com/watch?v=0JxR4c4c81M"
       },
       {
         id: "hw-2",
@@ -56,7 +57,8 @@ export const categories: Category[] = [
           "Abra o gabinete e desconecte todos os cabos da fonte antiga",
           "Instale a nova fonte e reconecte todos os cabos"
         ],
-        tags: ["fonte", "energia", "certificação", "80 plus", "economia"]
+        tags: ["fonte", "energia", "certificação", "80 plus", "economia"],
+        video: "https://www.youtube.com/watch?v=gONJ7C-9tw8"
       },
       {
         id: "hw-3",
@@ -72,7 +74,8 @@ export const categories: Category[] = [
           "Faça o teste do clipe de papel na fonte (pino verde + preto)",
           "Se a fonte ligar, verifique o conector do botão power na placa-mãe"
         ],
-        tags: ["não liga", "botão", "power", "fonte", "energia"]
+        tags: ["não liga", "botão", "power", "fonte", "energia"],
+        video: "https://www.youtube.com/watch?v=3laY9sU5xyQ"
       },
       {
         id: "hw-4",
@@ -89,7 +92,8 @@ export const categories: Category[] = [
           "Clique com botão direito e selecione 'Atualizar driver'",
           "Se persistir, desinstale o driver e reinicie"
         ],
-        tags: ["usb", "dispositivo", "driver", "porta", "reconhecer"]
+        tags: ["usb", "dispositivo", "driver", "porta", "reconhecer"],
+        video: "https://www.youtube.com/watch?v=B6Q8MIRmKCE"
       },
       {
         id: "hw-5",
@@ -105,7 +109,8 @@ export const categories: Category[] = [
           "Manuseie componentes pelas bordas, evitando tocar circuitos",
           "Mantenha os componentes nas embalagens antiestáticas até o uso"
         ],
-        tags: ["estática", "pulseira", "montagem", "componentes", "proteção"]
+        tags: ["estática", "pulseira", "montagem", "componentes", "proteção"],
+        video: "https://www.youtube.com/watch?v=CDUZRNp4pxg"
       },
       {
         id: "hw-6",
@@ -123,7 +128,8 @@ export const categories: Category[] = [
           "Reinicie o PC e pressione F2/F12/DEL para acessar BIOS",
           "Configure o pendrive como primeiro dispositivo de boot"
         ],
-        tags: ["boot", "pendrive", "instalação", "bios", "rufus", "sistema"]
+        tags: ["boot", "pendrive", "instalação", "bios", "rufus", "sistema"],
+        video: "https://www.youtube.com/watch?v=nbWgKyPmNh4"
       },
       {
         id: "hw-7",
@@ -139,7 +145,8 @@ export const categories: Category[] = [
           "Se o barulho persistir, lubrifique o eixo com óleo de máquina",
           "Se não resolver, substitua o cooler por um novo"
         ],
-        tags: ["cooler", "barulho", "ventoinha", "ruído", "poeira"]
+        tags: ["cooler", "barulho", "ventoinha", "ruído", "poeira"],
+        video: "https://www.youtube.com/watch?v=DYbP7N2qLE8"
       },
       {
         id: "hw-8",
@@ -156,7 +163,8 @@ export const categories: Category[] = [
           "Clique em 'Iniciar' (isso apagará todos os dados)",
           "Após formatar, copie o arquivo grande novamente"
         ],
-        tags: ["pendrive", "fat32", "ntfs", "arquivo grande", "formatar", "4gb"]
+        tags: ["pendrive", "fat32", "ntfs", "arquivo grande", "formatar", "4gb"],
+        video: "https://www.youtube.com/watch?v=oez9S2zY_9s"
       },
       {
         id: "hw-9",
@@ -173,7 +181,8 @@ export const categories: Category[] = [
           "Para recuperar arquivos, use Recuva ou TestDisk",
           "Considere fazer backup em nuvem regularmente"
         ],
-        tags: ["corrompido", "arquivo", "recuperação", "chkdsk", "disco", "backup"]
+        tags: ["corrompido", "arquivo", "recuperação", "chkdsk", "disco", "backup"],
+        video: "https://www.youtube.com/watch?v=9PBvYJLl3Oo"
       },
       {
         id: "hw-10",
@@ -191,7 +200,8 @@ export const categories: Category[] = [
           "Limpe arquivos temporários com a Limpeza de Disco",
           "Considere reinstalar o sistema se nada resolver"
         ],
-        tags: ["lento", "diagnóstico", "performance", "ram", "cpu", "ssd"]
+        tags: ["lento", "diagnóstico", "performance", "ram", "cpu", "ssd"],
+        video: "https://www.youtube.com/watch?v=MWqaMEBCgcc"
       },
       {
         id: "hw-11",
@@ -239,7 +249,8 @@ export const categories: Category[] = [
           "Verifique se há atualizações do Windows pendentes",
           "Considere adicionar mais RAM ou trocar HD por SSD"
         ],
-        tags: ["lento", "inicialização", "otimização", "performance", "limpeza"]
+        tags: ["lento", "inicialização", "otimização", "performance", "limpeza"],
+        video: "https://www.youtube.com/watch?v=MWqaMEBCgcc"
       },
       {
         id: "sw-2",
@@ -256,7 +267,8 @@ export const categories: Category[] = [
           "Fornece interface gráfica para você interagir",
           "Sem SO, o computador não funcionaria de forma utilizável"
         ],
-        tags: ["sistema operacional", "windows", "conceito", "iniciante", "básico"]
+        tags: ["sistema operacional", "windows", "conceito", "iniciante", "básico"],
+        video: "https://www.youtube.com/watch?v=26QPDBe-NB8"
       },
       {
         id: "sw-3",
@@ -273,7 +285,8 @@ export const categories: Category[] = [
           "Mantenha o antivírus sempre atualizado",
           "Faça varreduras completas semanalmente"
         ],
-        tags: ["antivírus", "proteção", "vírus", "segurança", "malware"]
+        tags: ["antivírus", "proteção", "vírus", "segurança", "malware"],
+        video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       },
       {
         id: "sw-4",
@@ -290,7 +303,8 @@ export const categories: Category[] = [
           "Prefira compartilhar arquivos por nuvem (Google Drive, OneDrive)",
           "Em ambiente corporativo, siga as políticas de segurança"
         ],
-        tags: ["pendrive", "segurança", "malware", "desconhecido", "risco"]
+        tags: ["pendrive", "segurança", "malware", "desconhecido", "risco"],
+        video: "https://www.youtube.com/watch?v=lT4rwLpTMvA"
       },
       {
         id: "sw-5",
@@ -307,7 +321,8 @@ export const categories: Category[] = [
           "Faça backup de: documentos, fotos, vídeos, trabalhos",
           "Teste seus backups periodicamente restaurando arquivos"
         ],
-        tags: ["backup", "cópia", "segurança", "nuvem", "hd externo"]
+        tags: ["backup", "cópia", "segurança", "nuvem", "hd externo"],
+        video: "https://www.youtube.com/watch?v=Y-ILwkPLSEY"
       },
       {
         id: "sw-6",
@@ -324,7 +339,8 @@ export const categories: Category[] = [
           "Não abra anexos de e-mails desconhecidos",
           "Baixe programas apenas de sites oficiais"
         ],
-        tags: ["vírus", "malware", "segurança", "proteção", "trojan"]
+        tags: ["vírus", "malware", "segurança", "proteção", "trojan"],
+        video: "https://www.youtube.com/watch?v=n8mbzU0X2nQ"
       },
       {
         id: "sw-7",
@@ -341,7 +357,8 @@ export const categories: Category[] = [
           "Muitos programas têm versões gratuitas ou estudante",
           "Além dos riscos, pirataria é crime (Lei 9.609/98)"
         ],
-        tags: ["pirataria", "crack", "segurança", "software", "legal"]
+        tags: ["pirataria", "crack", "segurança", "software", "legal"],
+        video: "https://www.youtube.com/watch?v=63lzD7DPukU"
       },
       {
         id: "sw-8",
@@ -358,7 +375,8 @@ export const categories: Category[] = [
           "Não desative o firewall sem necessidade",
           "Em redes públicas (cafés, aeroportos) é ainda mais importante"
         ],
-        tags: ["firewall", "rede", "segurança", "proteção", "invasão"]
+        tags: ["firewall", "rede", "segurança", "proteção", "invasão"],
+        video: "https://www.youtube.com/watch?v=kDEX1HXybrU"
       },
       {
         id: "sw-9",
@@ -375,7 +393,8 @@ export const categories: Category[] = [
           "Use o Segurança do Windows para ver status geral",
           "Ative autenticação em duas etapas nas suas contas"
         ],
-        tags: ["segurança", "verificação", "antivírus", "atualização", "proteção"]
+        tags: ["segurança", "verificação", "antivírus", "atualização", "proteção"],
+        video: "https://www.youtube.com/watch?v=inWWhr5tnEA"
       },
       {
         id: "sw-10",
@@ -392,7 +411,8 @@ export const categories: Category[] = [
           "Navegadores devem estar sempre na versão mais recente",
           "Aplicativos como Office também precisam de atualizações"
         ],
-        tags: ["atualização", "segurança", "windows update", "versão", "patch"]
+        tags: ["atualização", "segurança", "windows update", "versão", "patch"],
+        video: "https://www.youtube.com/watch?v=qmxrGCD9eZE"
       },
       {
         id: "sw-11",
@@ -409,7 +429,8 @@ export const categories: Category[] = [
           "Reinicie o computador após os comandos",
           "Se persistir, considere restaurar ou reinstalar o Windows"
         ],
-        tags: ["erro", "travamento", "sfc", "reparo", "sistema", "corrompido"]
+        tags: ["erro", "travamento", "sfc", "reparo", "sistema", "corrompido"],
+        video: "https://www.youtube.com/watch?v=7J7bykHZ3dc"
       }
     ]
   }

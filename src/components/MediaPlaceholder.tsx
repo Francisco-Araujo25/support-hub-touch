@@ -9,6 +9,24 @@ interface MediaPlaceholderProps {
   src?: string;
 }
 
+// Helper to extract YouTube video ID from various URL formats
+const getYouTubeVideoId = (url: string): string | null => {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\s?]+)/,
+    /^([a-zA-Z0-9_-]{11})$/ // Direct video ID
+  ];
+  
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match) return match[1];
+  }
+  return null;
+};
+
+const isYouTubeUrl = (url: string): boolean => {
+  return url.includes('youtube.com') || url.includes('youtu.be') || getYouTubeVideoId(url) !== null;
+};
+
 export const MediaPlaceholder = ({ 
   type = 'any',
   aspectRatio = '16/9',
@@ -20,6 +38,31 @@ export const MediaPlaceholder = ({
 
   // If there's actual media, render it
   if (src) {
+    // Check if it's a YouTube video
+    if (type === 'video' && isYouTubeUrl(src)) {
+      const videoId = getYouTubeVideoId(src);
+      if (videoId) {
+        return (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative rounded-2xl overflow-hidden shadow-lg"
+            style={{ aspectRatio }}
+          >
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
+              title={alt}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full border-0"
+              loading="lazy"
+            />
+          </motion.div>
+        );
+      }
+    }
+
+    // Local video file
     if (type === 'video') {
       return (
         <motion.div
@@ -41,6 +84,7 @@ export const MediaPlaceholder = ({
       );
     }
 
+    // Image
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
