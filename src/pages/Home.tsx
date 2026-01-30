@@ -34,32 +34,22 @@ const Home = () => {
           id="main-content"
           tabIndex={-1}
         >
-          {/* Logo Container */}
+          {/* Logo Container - Grande e Chamativo */}
           <motion.div
-            className="inline-block glass-card rounded-3xl p-6 md:p-8 mb-8"
-            initial={{ opacity: 0, scale: 0.95 }}
+            className="inline-block glass-card rounded-3xl p-8 md:p-12 mb-10"
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={reducedMotion ? {} : { scale: 1.02 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={reducedMotion ? {} : { scale: 1.03 }}
           >
             <img
               src={logoImg}
               alt="KB_TOTEM Logo"
               loading="eager"
               decoding="async"
-              className="h-24 md:h-32 lg:h-36 mx-auto rounded-2xl"
+              className="h-48 md:h-64 lg:h-80 mx-auto drop-shadow-2xl"
             />
           </motion.div>
-
-          {/* Title */}
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-tech text-shimmer mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.15, duration: 0.5 }}
-          >
-            KB_TOTEM
-          </motion.h1>
 
           {/* Description Card */}
           <motion.div

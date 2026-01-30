@@ -192,6 +192,29 @@ export const categories: Category[] = [
           "Considere reinstalar o sistema se nada resolver"
         ],
         tags: ["lento", "diagnóstico", "performance", "ram", "cpu", "ssd"]
+      },
+      {
+        id: "hw-11",
+        titulo: "Como montar um PC do zero",
+        descricao: "Aprenda a montar seu próprio computador passo a passo",
+        causa: "Falta de conhecimento sobre montagem de hardware",
+        solucao: "Siga o guia completo de montagem com vídeo demonstrativo",
+        passos: [
+          "Prepare a área de trabalho com boa iluminação e espaço",
+          "Use pulseira antiestática ou toque em metal aterrado",
+          "Instale o processador (CPU) na placa-mãe com cuidado",
+          "Encaixe os pentes de memória RAM nos slots",
+          "Aplique pasta térmica e instale o cooler do processador",
+          "Fixe a placa-mãe no gabinete usando os espaçadores",
+          "Instale a fonte de alimentação no gabinete",
+          "Conecte o SSD/HD e unidade óptica (se houver)",
+          "Instale a placa de vídeo no slot PCI-Express",
+          "Conecte todos os cabos de energia e dados",
+          "Conecte os cabos do painel frontal (power, reset, leds)",
+          "Feche o gabinete e faça o primeiro boot"
+        ],
+        tags: ["montagem", "pc gamer", "montar", "build", "computador", "hardware", "tutorial"],
+        video: "/videos/montar-pc.mp4"
       }
     ]
   },
