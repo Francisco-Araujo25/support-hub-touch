@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Hand, X, Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,14 @@ interface LibrasButtonProps {
   label?: string;
 }
 
+// Helper para extrair ID do vídeo do YouTube
+const getYouTubeVideoId = (url: string): string | null => {
+  if (!url) return null;
+  const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
 export const LibrasButton = ({ 
   videoUrl, 
   categoryColor = 'hsl(var(--primary))',
@@ -18,6 +26,9 @@ export const LibrasButton = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const { playTap } = useAudioFeedback();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const youtubeId = videoUrl ? getYouTubeVideoId(videoUrl) : null;
+  const isYouTube = !!youtubeId;
 
   const handleToggle = () => {
     playTap();
@@ -29,6 +40,13 @@ export const LibrasButton = ({
 
   const handlePlayPause = () => {
     playTap();
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+    }
     setIsPlaying(!isPlaying);
   };
 
@@ -37,6 +55,23 @@ export const LibrasButton = ({
     setIsOpen(false);
     setIsPlaying(false);
   };
+
+  // Sincronizar estado de play/pause com o vídeo
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    video.addEventListener('play', handlePlay);
+    video.addEventListener('pause', handlePause);
+
+    return () => {
+      video.removeEventListener('play', handlePlay);
+      video.removeEventListener('pause', handlePause);
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -113,16 +148,30 @@ export const LibrasButton = ({
               {/* Área de vídeo */}
               <div className="aspect-video bg-muted relative">
                 {videoUrl ? (
-                  <video
-                    src={videoUrl}
-                    className="w-full h-full object-contain bg-black"
-                    autoPlay={isPlaying}
-                    controls
-                    aria-label="Vídeo de interpretação em LIBRAS"
-                  >
-                    <track kind="captions" />
-                    Seu navegador não suporta vídeos.
-                  </video>
+                  isYouTube ? (
+                    // Vídeo do YouTube
+                    <iframe
+                      src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+                      title="Interpretação em LIBRAS"
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  ) : (
+                    // Vídeo local
+                    <video
+                      ref={videoRef}
+                      src={videoUrl}
+                      className="w-full h-full object-contain bg-black"
+                      autoPlay
+                      controls
+                      aria-label="Vídeo de interpretação em LIBRAS"
+                    >
+                      <track kind="captions" />
+                      Seu navegador não suporta vídeos.
+                    </video>
+                  )
                 ) : (
                   /* Placeholder quando não há vídeo */
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-muted/50 to-muted">
@@ -155,25 +204,27 @@ export const LibrasButton = ({
 
               {/* Controles */}
               <div className="p-4 flex items-center justify-center gap-4 border-t border-border">
-                <Button
-                  variant="outline"
-                  onClick={handlePlayPause}
-                  className="gap-2"
-                  style={{ borderColor: categoryColor, color: categoryColor }}
-                  disabled={!videoUrl}
-                >
-                  {isPlaying ? (
-                    <>
-                      <Pause className="w-4 h-4" />
-                      Pausar
-                    </>
-                  ) : (
-                    <>
-                      <Play className="w-4 h-4" />
-                      Reproduzir
-                    </>
-                  )}
-                </Button>
+                {!isYouTube && (
+                  <Button
+                    variant="outline"
+                    onClick={handlePlayPause}
+                    className="gap-2"
+                    style={{ borderColor: categoryColor, color: categoryColor }}
+                    disabled={!videoUrl}
+                  >
+                    {isPlaying ? (
+                      <>
+                        <Pause className="w-4 h-4" />
+                        Pausar
+                      </>
+                    ) : (
+                      <>
+                        <Play className="w-4 h-4" />
+                        Reproduzir
+                      </>
+                    )}
+                  </Button>
+                )}
                 <Button
                   variant="default"
                   onClick={handleClose}
